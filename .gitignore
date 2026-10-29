@@ -1,0 +1,35 @@
+node_modules/
+
+# This project uses Bun's bun.lock; do not commit npm's local lockfile.
+package-lock.json
+
+# Production and build output
+dist/
+.vite/
+coverage/
+.output/
+.nitro/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Local logs and tooling cache
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.eslintcache
+.turbo/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
