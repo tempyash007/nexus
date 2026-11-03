@@ -9,6 +9,11 @@ dist/
 coverage/
 .output/
 .nitro/
+.wrangler/
+cookies.txt
+
+# Frontend build output after the frontend move
+frontend/dist/
 
 # Local environment and secrets
 .env

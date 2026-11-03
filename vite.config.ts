@@ -8,10 +8,16 @@
 // hosting already compresses at the edge.
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import path from "node:path";
 
 export default defineConfig({
+  // The frontend lives below /frontend while the API remains at /server.
+  vite: {
+    resolve: { alias: { "@": path.resolve(process.cwd(), "frontend/src") } },
+  },
   tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
+    srcDirectory: "frontend/src",
+    // Redirect TanStack Start's bundled server entry to frontend/src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
   },

@@ -149,7 +149,7 @@ export const webhookService = {
     const inbox = findInbox(s, inboxId);
     const url = new URL(draft.url);
     const query = Object.fromEntries(url.searchParams.entries());
-    const headers = { host: "hooks.nexus.dev", ...draft.headers };
+    const headers: Record<string, string> = { host: "hooks.nexus.dev", ...draft.headers };
     if (draft.body && !headers["content-type"]) headers["content-type"] = "application/json";
     const request: WebhookRequest = {
       id: `req_${randomId(10)}`,

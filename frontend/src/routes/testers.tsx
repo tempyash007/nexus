@@ -61,7 +61,9 @@ function RequestTesterPage() {
   async function send() {
     setResponse({ kind: "sending" });
     try {
-      const response = await fetch(draft.url, { method: draft.method, headers: draft.headers, body: draft.body || undefined });
+      const requestInit: RequestInit = { method: draft.method, headers: draft.headers };
+      if (draft.body) requestInit.body = draft.body;
+      const response = await fetch(draft.url, requestInit);
       setResponse({ kind: "response", code: response.status, text: response.statusText || "Response received" });
     } catch {
       setResponse({ kind: "blocked", message: "Browser blocked this request (usually CORS)." });
